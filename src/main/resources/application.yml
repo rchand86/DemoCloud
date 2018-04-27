@@ -1,0 +1,29 @@
+function:
+  name: ${HANDLER_FUNC}
+ldap:
+  base:
+    dn: OU=People,DC=one,DC=steria,DC=dom
+  context:
+    factory: com.sun.jndi.ldap.LdapCtxFactory
+  password: QmVyYXRlckAyMDE4
+  security:
+    authentication: simple
+  url: ldap://10.110.25.7/
+  #username: SU4tU1ZDLUNvbnN1bHRhbnRAb25lLnN0ZXJpYS5kb20=
+  #username: SU4tU1ZDLUNvbnN1bHRhbnRAMTAuMTEwLjI1Ljc=
+  username: SU4tU1ZDLUNvbnN1bHRhbnQ=
+spring:
+  jmx:
+    enabled: 'true'
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto:  none
+  datasource:
+      url: jdbc:mysql://bappdb.c4jqrbtpeqs5.eu-central-1.rds.amazonaws.com:3306/bapp?zeroDateTimeBehavior=convertToNull
+      #url: jdbc:mysql://localhost:3306/bapp?zeroDateTimeBehavior=convertToNull
+      username: berater
+      password: Berater$29
+    
+finduser:
+    query: (&(objectCategory=User)(userPrincipalName="{0}"))
